@@ -2,7 +2,7 @@
 ## Helper Functions
 ###############################################################################
 def count_pattern string, pattern
-  string.downcase.scan(/#{pattern}/).length
+  string.downcase.scan(/#{pattern.downcase}/).length
 end
 
 def string_includes_pattern? string, pattern
@@ -69,13 +69,17 @@ def substrings
 
   # we are using reduce to tally counts of each substring, and 'accumulate' a
   # hash with the results
-  dictionary.reduce Hash.new 0 do |hash, substring|
+  result = dictionary.reduce Hash.new 0 do |hash, substring|
     if string_includes_pattern? string, substring
       hash[substring] += count_pattern string, substring
     end
     # return the hash
     hash
   end
+  # Print to screen, also still return the hash as an object
+  print "3) ### Results:\n\n"
+  result.each { |key, val| puts "#{key} => #{val}" }
+  result
 end
 
 
