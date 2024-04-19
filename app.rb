@@ -6,9 +6,9 @@ end
 
 def substrings(string, dictionary)
   dictionary.reduce(Hash.new(0)) do |hash, substring|
-    hash[substring] += 1 if string.include? substring
+    hash[substring] += string.downcase.scan(/#{substring}/).length if string.downcase.include? substring.downcase
     hash
   end
 end
 
-substrings 'below', test_dictionary
+substrings  "Howdy partner, sit down! How's it going?", test_dictionary
