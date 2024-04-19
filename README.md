@@ -3,7 +3,9 @@
 
 - You can run the script in irb or with:
 
-```ruby ./app.rb```
+```
+ruby ./app.rb
+```
 
 - The terminal will ask you, the user, for input for the string to check, as well as the dictionary.
 
